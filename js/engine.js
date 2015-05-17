@@ -80,7 +80,20 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    /* Check to see if there is a collision between the player and an enemy.
+     *If there is a collision reset palyer back to start position.
+     */
+
+    function checkCollisions() {
+        allEnemies.forEach(function(enemy) {
+            if ((enemy.x <= player.x + 40) && (player.x <= enemy.x + 45)
+                && (player.y >= enemy.y - 50) && (player.y <= enemy.y)) {
+                player.start();
+            }
+        });
     }
 
     /* This is called by the update function  and loops through all of the
