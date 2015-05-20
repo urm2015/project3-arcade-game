@@ -57,7 +57,7 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
         win.requestAnimationFrame(main);
-    };
+    }
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -89,8 +89,7 @@ var Engine = (function(global) {
 
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
-            if ((enemy.x <= player.x + 40) && (player.x <= enemy.x + 45)
-                && (player.y >= enemy.y - 50) && (player.y <= enemy.y)) {
+            if ((enemy.x <= player.x + 40) && (player.x <= enemy.x + 45) && (player.y >= enemy.y - 50) && (player.y <= enemy.y)) {
                 player.start();
             }
         });
